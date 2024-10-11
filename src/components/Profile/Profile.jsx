@@ -1,31 +1,34 @@
-import css from './Profile.module.css';
+import stylesProfile from './Profile.module.css';
 
 export default function Profile({ name, tag, location, image, stats }) {
   return (
-    <div className={css.profileContainer}>
-      <div className={css.profileCard}>
-        <div className={css.profileInfo}>
-          <img className={css.image} src={image} alt="User avatar" />
-          <p className={css.profileName}>{name}</p>
-          <p className={css.profileTag}>@{tag}</p>
-          <p className={css.profileLocation}>{location}</p>
-        </div>
-
-        <ul className={css.statsList}>
-          <li className={css.statsItem}>
-            <span>Followers</span>
-            <span className={css.statsNumber}>{stats.followers}</span>
-          </li>
-          <li className={css.statsItem}>
-            <span>Views</span>
-            <span className={css.statsNumber}>{stats.views}</span>
-          </li>
-          <li className={css.statsItem}>
-            <span>Likes</span>
-            <span className={css.statsNumber}>{stats.likes}</span>
-          </li>
-        </ul>
+    <div className={stylesProfile.card}>
+      <div className={stylesProfile.titleBlock}>
+        <img
+          className={stylesProfile.userPhoto}
+          src={image}
+          alt="User avatar"
+        />
+        <p className={stylesProfile.userName}>{name}</p>
+        <p className={stylesProfile.userInfo}>@{tag}</p>
+        <p className={stylesProfile.userInfo}>{location}</p>
       </div>
+      <ul className={stylesProfile.userStatsList}>
+        <li className={stylesProfile.userStatsItem}>
+          <span>Followers</span>
+          <span className={stylesProfile.userStatsValue}>
+            {stats.followers}
+          </span>
+        </li>
+        <li className={stylesProfile.userStatsItem}>
+          <span>Views</span>
+          <span className={stylesProfile.userStatsValue}>{stats.views}</span>
+        </li>
+        <li className={stylesProfile.userStatsItem}>
+          <span>Likes</span>
+          <span className={stylesProfile.userStatsValue}>{stats.likes}</span>
+        </li>
+      </ul>
     </div>
   );
 }
